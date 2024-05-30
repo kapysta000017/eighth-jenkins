@@ -1,7 +1,5 @@
 pipeline {
-  agent {
-    label 'nodejs-agent' // Укажите метку агента
-  }
+  agent any
 
   tools {
     nodejs "NODEJS" // Название NodeJS, как вы его указали в Global Tool Configuration
