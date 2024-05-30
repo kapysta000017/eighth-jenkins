@@ -4,6 +4,7 @@ pipeline {
   stages {
     stage("Build") {
       steps {
+        sh "cat asldkfj.txt"
         echo "Hello Build"
       }
     }
