@@ -1,5 +1,5 @@
 pipeline {
-  agent any
+  agent { docker { image "node:latest" } }
 
   stages {
     stage("Build") {
@@ -14,6 +14,7 @@ pipeline {
     }
     stage("Deploy") {
       steps {
+        sh "node --version"
         echo "Hello Deploy"
       }
     }
