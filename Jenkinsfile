@@ -1,5 +1,11 @@
 pipeline {
-  agent { docker { image "node:latest" } }
+  agent {
+    label 'nodejs-agent' // Укажите метку агента
+  }
+
+  tools {
+    nodejs "NODEJS" // Название NodeJS, как вы его указали в Global Tool Configuration
+  }
 
   stages {
     stage("Build") {
@@ -14,7 +20,6 @@ pipeline {
     }
     stage("Deploy") {
       steps {
-        sh "node --version"
         echo "Hello Deploy"
       }
     }
