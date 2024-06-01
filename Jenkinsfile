@@ -5,7 +5,7 @@ pipeline {
     stage("Deploy") {
       steps {
         sshagent (credentials: ['selectel-shawna']) {
-          sh 'ssh -o StrictHostKeyChecking=no -l cloudbees 45.89.188.57 uname -a'
+          sh 'scp -o StrictHostKeyChecking=no -r * ubuntu@45.89.188.57:/var/www/html'
         }
       }
     }
