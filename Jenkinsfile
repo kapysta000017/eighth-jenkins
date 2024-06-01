@@ -5,7 +5,7 @@ pipeline {
     stage("Deploy") {
       steps {
         sshagent (credentials: ['selectel-shawna']) {
-          sh 'scp -o StrictHostKeyChecking=no -r * ubuntu@45.89.188.57:/var/www/html'
+          sh 'scp -o StrictHostKeyChecking=no -r ./index.html ubuntu@45.89.188.57:/var/www/html'
         }
       }
     }
