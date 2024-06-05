@@ -7,6 +7,7 @@ pipeline {
         sshagent(['Anahi']) {
           sh 'ssh -o StrictHostKeyChecking=no -l root ubuntu@45.89.189.30 uname -a'
           // sh 'scp -o StrictHostKeyChecking=no index.html root ubuntu@45.89.189.30:/var/www/html'
+          // sh 'scp -r build/* user@server:/path/to/deployment'
         }
       }
     }

@@ -1,0 +1,71 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build') { 
+            steps {
+                sh 'npm install' 
+            }
+        }
+    }
+}
+
+// pipeline {
+//     agent any
+
+//     // плагин nodejs добавили в tools сервера
+//     tools {nodejs "NODEJS"}
+
+//     // environment {
+//     //     NODE_HOME = "/usr/local/bin/node" // путь к Node.js на сервере
+//     // }
+
+
+//     stages {
+//         stage('Checkout') {
+//             steps {
+//                 // Клонирование репозитория
+//                 git 'https://github.com/kapysta000017/jenkins.git'
+//             }
+//         }
+//         stage('Install Dependencies') {
+//             steps {
+//                 // Установка зависимостей
+//                 script {
+//                     if (fileExists('package-lock.json')) {
+//                         sh 'npm ci'
+//                     } else {
+//                         sh 'npm install'
+//                     }
+//                 }
+//             }
+//         }
+//         stage('Build') {
+//             steps {
+//                 // Сборка приложения
+//                 sh 'npm run build'
+//             }
+//         }
+//         // stage('Deploy') {
+//         //     steps {
+//         //         // Развертывание приложения
+//         //         // Здесь вы можете добавить команды для развертывания, например, копирование файлов на сервер
+//         //         // или использование инструментов для развертывания, таких как Ansible, Docker, Kubernetes и т.д.
+//         //         echo 'Deploying the application...'
+//         //         // Например:
+//         //         // sh 'scp -r build/* user@server:/path/to/deployment'
+//         //     }
+//         // }
+//     }
+//     post {
+//         always {
+//             // Очистка
+//             cleanWs()
+//         }
+//         success {
+//             echo 'Pipeline завершен успешно!'
+//         }
+//         failure {
+//             echo 'Pipeline завершен с ошибками.'
+//         }
+//     }
+// }
